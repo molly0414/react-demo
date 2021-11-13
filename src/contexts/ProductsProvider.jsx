@@ -51,7 +51,7 @@ export const getProducts = (dispatch) => {
     type: "GET_PRODUCTS_REQUEST"
   });
   axios
-    .get("./data.json")
+    .get("https://molly0414.github.io/react-demo/data/items.json")
     .then((response) => {
       dispatch({
         type: "GET_PRODUCTS_SUCCESS",

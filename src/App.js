@@ -20,13 +20,13 @@ function App() {
           <Header>
             <div className="logo" />
             <Menu theme="dark" onClick={(e) => setCurrent(e.key)} selectedKeys={[current]} mode="horizontal">
-              <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/">Home</Link></Menu.Item>
+              <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/react-demo">Home</Link></Menu.Item>
               <Menu.Item key="cart" icon={<ShoppingCartOutlined />}><Link to="/my-cart">My Cart</Link></Menu.Item>
             </Menu>
           </Header>
           <Content style={{ padding: '50px' }}>
             <Routes>
-              <Route exact path="/" element={<Products />} />
+              <Route path="/react-demo" element={<Products />} />
               <Route path="/my-cart" element={<MyCart />} />
               <Route path="/item/:id" element={<ProductDetail />} />
             </Routes>

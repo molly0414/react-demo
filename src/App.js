@@ -17,14 +17,13 @@ function App() {
     <ProductsProvider>
       <Router>
         <Layout className="layout">
-          <Header>
-            <div className="logo" />
+          <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
             <Menu theme="dark" onClick={(e) => setCurrent(e.key)} selectedKeys={[current]} mode="horizontal">
               <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/react-demo">Home</Link></Menu.Item>
               <Menu.Item key="cart" icon={<ShoppingCartOutlined />}><Link to="/my-cart">My Cart</Link></Menu.Item>
             </Menu>
           </Header>
-          <Content style={{ padding: '50px' }}>
+          <Content style={{ padding: '48px' }}>
             <Routes>
               <Route path="/react-demo" element={<Products />} />
               <Route path="/my-cart" element={<MyCart />} />

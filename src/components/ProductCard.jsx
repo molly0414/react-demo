@@ -15,7 +15,7 @@ const ProductCard = ({ data }) => {
     );
   } else {
     return (
-      <Link to={"/item/" + data.id}>
+      <Link to={{ pathname: "/item/" + data.id, state: data }}>
         <Card hoverable cover={<img alt={data.title} src={data.image}/>}>
           <Meta title={data.name} description={"NT$ " + data.price}/>    
         </Card>

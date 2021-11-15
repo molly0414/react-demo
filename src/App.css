@@ -1,15 +1,20 @@
 @import '~antd/dist/antd.css';
 
 .site-layout-content {
-  min-height: 280px;
-  padding: 24px;
-  background: #f8f8f8;
+  min-height: 400px;
+  margin-top: 64px;
 }
 
-.logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+.center-content {
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 28px;
+  color: #0b8d87;
 }

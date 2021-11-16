@@ -20,7 +20,7 @@ const Products = () => {
           {new Array(8).fill(null).map((_, index) => {
             const key = index + 1;
             return (
-              <Col key={key} xs={24} md={8} xl={6}>
+              <Col key={key} xs={24} sm={12} md={8} xl={6}>
                 <ProductCard data={null}/>
               </Col>
               );
@@ -34,7 +34,7 @@ const Products = () => {
     <div className="site-layout-content">
       <Row gutter={[24, 24]}>
         {isLoaded && productsList.map((data) => 
-          <Col key={data.id} xs={24} md={8} xl={6}>
+          <Col key={data.id} xs={24} sm={12} md={8} xl={6}>
             <ProductCard data={data}/>
           </Col>)
         }

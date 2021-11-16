@@ -15,7 +15,7 @@ const ProductDetail = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return (<div className="center-content"><Spin size="large" /></div>)  
+    return (<div className="center-content site-layout-content"><Spin size="large" /></div>)  
   }
 
   const options = [];
@@ -28,10 +28,10 @@ const ProductDetail = () => {
     return (
       <div className="site-layout-content">
         <Row gutter={[24, 24]}>
-          <Col xs={24} sm={8}>
+          <Col xs={24} sm={6}>
             <Image src={product.image} />
           </Col>
-          <Col xs={24} sm={16}>
+          <Col xs={24} sm={18}>
             <h1 className="title">{product.name}</h1>
             <h1 className="price">NT$ {product.price}</h1>
             <Space>

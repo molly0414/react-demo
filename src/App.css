@@ -18,3 +18,41 @@
   font-size: 28px;
   color: #0b8d87;
 }
+
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: white;
+}
+
+.logo {
+  float: left;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  margin: 16px 24px 16px 0;
+  color: #1890ff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search {
+  float: left;
+  width: 240px;
+  height: 32px;
+  margin: 16px 24px 16px 0;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+

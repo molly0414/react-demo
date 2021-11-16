@@ -16,10 +16,10 @@ function App() {
   const onSearch = (value) => console.log(value);
   return (
     <ProductsProvider>
-      <Router>
+      <Router basename="/react-demo">
         <Layout className="layout">
           <Header className="header">
-            <div className="logo"><Link to="/react-demo">Test Logo</Link></div>
+            <div className="logo"><Link to="/">Test Logo</Link></div>
             <Search
               className="search hidden-sm"
               placeholder="input search text"
@@ -32,13 +32,13 @@ function App() {
               onClick={(e) => setCurrent(e.key)} 
               selectedKeys={[current]} 
               mode="horizontal">
-              <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/react-demo">Home</Link></Menu.Item>
+              <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/">Home</Link></Menu.Item>
               <Menu.Item key="cart" icon={<ShoppingCartOutlined />}><Link to="/my-cart">My Cart</Link></Menu.Item>
             </Menu>
           </Header>
           <Content style={{ padding: '48px' }}>
             <Routes>
-              <Route path="/react-demo" element={<Products />} />
+              <Route path="/" element={<Products />} />
               <Route path="/my-cart" element={<MyCart />} />
               <Route path="/item/:id" element={<ProductDetail />} />
             </Routes>

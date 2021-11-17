@@ -19,11 +19,14 @@ function App() {
     setSearchKeyword(value);
     navigate("/")
   }
+  const clearSearch = () => {
+    setSearchKeyword('')
+  }
   return (
     <ProductsProvider>
         <Layout className="layout">
           <Header className="header">
-            <div className="logo"><Link to="/">Test Logo</Link></div>
+            <div className="logo"><Link to="/" onClick={clearSearch}>Test Logo</Link></div>
             <Search
               className="search hidden-sm"
               placeholder="Input search text"
@@ -34,9 +37,9 @@ function App() {
               className="menu" 
               theme="light" 
               onClick={(e) => setCurrent(e.key)} 
-              selectedKeys={[current]} 
+              selectedKeys={[current]}
               mode="horizontal">
-              <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/">Home</Link></Menu.Item>
+              <Menu.Item key="home" icon={<HomeOutlined />}><Link to="/" onClick={clearSearch}>Home</Link></Menu.Item>
               <Menu.Item key="cart" icon={<ShoppingCartOutlined />}><Link to="/my-cart">My Cart</Link></Menu.Item>
             </Menu>
           </Header>

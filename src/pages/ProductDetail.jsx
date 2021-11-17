@@ -15,7 +15,7 @@ const ProductDetail = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return (<div className="center-content site-layout-content"><Spin size="large" /></div>)  
+    return (<div className="center-content"><Spin size="large" /></div>)  
   }
 
   const options = [];
@@ -26,23 +26,21 @@ const ProductDetail = () => {
   if (isLoaded && products) {
     let product = products.find(obj => obj.id.toString() === id);
     return (
-      <div className="site-layout-content">
-        <Row gutter={[24, 24]}>
-          <Col xs={24} sm={6}>
-            <Image src={product.image} />
-          </Col>
-          <Col xs={24} sm={18}>
-            <h1 className="title">{product.name}</h1>
-            <h1 className="price">NT$ {product.price}</h1>
-            <Space>
-              <Select size="large" defaultValue="1" style={{ width: 60 }}>
-                {options}
-              </Select>
-              <Button type="primary" size="large" icon={<ShoppingCartOutlined />}>ADD TO CART</Button>
-            </Space>
-          </Col>
-        </Row>
-      </div>
+      <Row gutter={[24, 24]}>
+        <Col xs={24} sm={6}>
+          <Image src={product.image} />
+        </Col>
+        <Col xs={24} sm={18}>
+          <h1 className="title">{product.name}</h1>
+          <h1 className="price">NT$ {product.price}</h1>
+          <Space>
+            <Select defaultValue="1" style={{ width: 60 }}>
+              {options}
+            </Select>
+            <Button type="primary" icon={<ShoppingCartOutlined />}>ADD TO CART</Button>
+          </Space>
+        </Col>
+      </Row>
     );
   }
   return <Empty />  

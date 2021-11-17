@@ -3,6 +3,7 @@
 .site-layout-content {
   min-height: 400px;
   margin-top: 64px;
+  padding: 48px;
 }
 
 .center-content {
@@ -10,12 +11,12 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
 }
 
 .price {
-  font-size: 28px;
+  font-size: 24px;
   color: #0b8d87;
 }
 

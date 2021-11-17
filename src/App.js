@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Layout, Menu, Input } from 'antd';
 import { HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import 'App.css';
@@ -12,17 +12,21 @@ const { Header, Content, Footer } = Layout;
 const { Search } = Input;
 
 function App() {
+  let navigate = useNavigate()
   const [current, setCurrent] = useState('home');
-  const onSearch = (value) => console.log(value);
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const onSearch = (value) => {
+    setSearchKeyword(value);
+    navigate("/")
+  }
   return (
     <ProductsProvider>
-      <Router basename="/react-demo">
         <Layout className="layout">
           <Header className="header">
             <div className="logo"><Link to="/">Test Logo</Link></div>
             <Search
               className="search hidden-sm"
-              placeholder="input search text"
+              placeholder="Input search text"
               allowClear
               onSearch={onSearch}
             />
@@ -36,16 +40,15 @@ function App() {
               <Menu.Item key="cart" icon={<ShoppingCartOutlined />}><Link to="/my-cart">My Cart</Link></Menu.Item>
             </Menu>
           </Header>
-          <Content style={{ padding: '48px' }}>
+          <Content className="site-layout-content">
             <Routes>
-              <Route path="/" element={<Products />} />
+              <Route path="/" element={<Products searchKeyword={searchKeyword}/>} />
               <Route path="/my-cart" element={<MyCart />} />
               <Route path="/item/:id" element={<ProductDetail />} />
             </Routes>
           </Content>
           <Footer style={{ textAlign: 'center' }}>©2021 Created by Molly Wu</Footer>
-        </Layout>
-      </Router>  
+        </Layout> 
     </ProductsProvider>
   )
 }

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const { Meta } = Card;
 
 const ProductCard = ({ data }) => {
-
   if (data === null) {
     return (
       <Card style={{ height: 300 }}>
@@ -15,7 +14,7 @@ const ProductCard = ({ data }) => {
     );
   } else {
     return (
-      <Link to={{ pathname: "/item/" + data.id, state: data }}>
+      <Link to={{ pathname: "/item/" + data.id }}>
         <Card hoverable cover={<img alt={data.title} src={data.image}/>}>
           <Meta title={data.name} description={"NT$ " + data.price}/>    
         </Card>

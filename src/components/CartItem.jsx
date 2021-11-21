@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { CartContext, removeFromCart, changeQuantity } from "contexts/CartProvider";
 import { Button, Modal, Select } from "antd";
 import { CloseOutlined, DeleteOutlined } from "@ant-design/icons";
-import { getRandom } from "pages/ProductDetail";
 
 const { Option } = Select;
 const { confirm } = Modal;
@@ -12,7 +11,7 @@ const CartItem = ({ data }) => {
   const { dispatch } = useContext(CartContext);
 
   const options = [];
-  for (let i = 1; i < getRandom(data.quantity, 10) + 1; i++) {
+  for (let i = 1; i <= 10; i++) {
     options.push(
       <Option key={i} value={i}>
         {i}
@@ -26,6 +25,7 @@ const CartItem = ({ data }) => {
       icon: <DeleteOutlined />,
       okText: "Yes",
       cancelText: "No",
+      okType: 'danger',
       onOk() {
         removeFromCart(dispatch, data.id);
       },
@@ -37,7 +37,7 @@ const CartItem = ({ data }) => {
   }
 
   return (
-    <div className="cart-item">
+    <div className="cart-item flex-row">
       <Link to={{ pathname: "/item/" + data.id }} style={{ height: "100%" }}>
         <img
           alt={data.title}
@@ -48,7 +48,7 @@ const CartItem = ({ data }) => {
       <Link to={{ pathname: "/item/" + data.id }}>
         <h3 className="cart-item-title">{data.name}</h3>
       </Link>
-      <h3 className="cart-item-price">NT$ {data.price}</h3>
+      <h3 className="cart-item-price flex-grow-1">NT$ {data.price}</h3>
       <CloseOutlined style={{ marginRight: 8 }} />
       <Select defaultValue={data.quantity} style={{ width: 60 }} onChange={handleChange}>
         {options}

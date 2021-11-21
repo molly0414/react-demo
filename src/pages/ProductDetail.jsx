@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router";
 import { ProductsContext, getProducts } from "contexts/ProductsProvider";
-import { Spin, Empty, Image, Row, Col, Button, Select, Space } from 'antd'
+import { Spin, Empty, Image, Row, Col, Button, Select, Space, message } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { CartContext, addToCart } from "contexts/CartProvider";
 
@@ -22,7 +22,7 @@ const ProductDetail = () => {
   }
 
   const options = [];
-  for (let i = 1; i < getRandom(2, 10); i++) {
+  for (let i = 1; i <= 10; i++) {
     options.push(<Option key={i} value={i}>{i}</Option>);
   }
 
@@ -31,6 +31,7 @@ const ProductDetail = () => {
     const handleAddToCart = () => {
       const item = { ...product, quantity: Number(selectedQuantity) };
       addToCart(cartDispatch, item);
+      message.success(product.name + ' is added.');
     };
 
     return (
@@ -52,10 +53,6 @@ const ProductDetail = () => {
     );
   }
   return <Empty />  
-};
-
-export const getRandom = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 export default ProductDetail;

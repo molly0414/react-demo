@@ -57,10 +57,17 @@
   }
 }
 
-.cart-item {
-  height: 120px;
+.flex-row {
   display: flex; 
   flex-direction: row;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.cart-item {
+  height: 120px;
   background-color: white;
   align-items: center;
 }
@@ -79,8 +86,13 @@
 }
 
 .cart-item-price {
-  flex-grow: 1;
   color: #0b8d87;
   margin: 8px;
   text-align: end;
+}
+
+.cart-total {
+  display: flex; 
+  flex-direction: column;
+  align-items: flex-end;
 }

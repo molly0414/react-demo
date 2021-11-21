@@ -18,9 +18,10 @@ const reducer = (state, action) => {
       if (isOld) {
         const items = state.items.map((item) => {
           if (item.id === id) {
+            const newQuantity = item.quantity + action.payload.newItem.quantity;
             return {
               ...item,
-              quantity: item.quantity + action.payload.newItem.quantity,
+              quantity: newQuantity > 10 ? 10 : newQuantity,
             };
           }
           return item;
